@@ -1,0 +1,105 @@
+//Function in js --------------//
+
+In JavaScript, a function is a block of code that performs a specific task or set of tasks. It can be defined using the "function" keyword followed by a name, a set of parentheses for any parameters, and a set of curly braces for the code to be executed.
+
+Functions can be invoked or called by using the function name followed by parentheses. They can also return a value using the "return" keyword. In addition, functions can be assigned to variables, passed as arguments to other functions, and even defined inside other functions. Let's say we want to create a function that takes two numbers as arguments and returns their sum
+
+function addNumbers(num1, num2) {
+  return num1 + num2;
+}
+
+//Another way of function defination it is called arrow function--
+let addNumber = (num1, num2) => {
+  return num1 + num2;
+};
+
+let result = addNumbers(2, 3);
+console.log(result); // Output: 5
+
+In this example, we defined a function called addNumbers that takes two parameters num1 and num2. Inside the function, we simply add these two numbers and return the result using the return keyword.
+
+We then invoked the addNumbers function with the arguments 2 and 3 and assigned the returned result to a variable called result. Finally, we printed the value of result to the console using the console.log statement, which should output the value of 5.
+
+
+
+////////Now, let's talk about the benefits of using functions in JavaScript:------------
+
+1. Reusability: Functions can be used multiple times throughout a program, reducing the amount of code that needs to be written.
+
+2. Modularity: Functions can be defined separately from the rest of the code, making the code more organized and easier to maintain.
+
+3. Abstraction: Functions can hide the implementation details of a particular task, making the code more readable and easier to understand.
+
+4. Encapsulation: Functions can have their own local scope, preventing naming conflicts and making the code more secure.
+
+
+Overall, functions are a fundamental building block of JavaScript programming and are essential for creating efficient, reusable, and modular code.
+
+
+
+
+
+
+
+//Scope in js ----------------
+In JavaScript, scope refers to the visibility or accessibility of variables, functions, and other identifiers within a particular part of a program. The scope determines where a variable or function can be accessed and used in the code.
+
+There are two types of scopes in JavaScript: global scope and local scope.
+
+Global scope refers to variables or functions that are declared outside of any functions, which means they can be accessed and used from anywhere in the code. For example:
+
+let message = "Hello, world!";
+
+function printMessage() {
+  console.log(message);
+}
+
+printMessage(); // Output: Hello, world!
+
+In this example, the message variable is declared outside of the printMessage function, which means it has global scope and can be accessed and used from within the function.
+
+Local scope, on the other hand, refers to variables or functions that are declared inside a particular function or block of code. They are only accessible within that function or block of code, and not from anywhere else in the program. For example:
+
+function printNumbers() {
+  let number1 = 10;
+  let number2 = 20;
+  console.log(number1 + number2);
+}
+
+printNumbers(); // Output: 30
+console.log(number1); // Error: number1 is not defined
+
+In this example, the number1 and number2 variables are declared inside the printNumbers function, which means they have local scope and can only be accessed from within that function. Trying to access them from outside the function will result in an error.
+
+It's important to understand scope in JavaScript because it can affect how variables and functions are used and accessed in the code. It can also help prevent naming conflicts and improve code organization.
+
+
+
+//Closure in js -------------
+
+In JavaScript, closures refer to the ability of a function to access and remember its lexical scope, even when that function is executed outside of its original lexical scope. In other words, a closure allows a function to access and use variables and functions from its outer (enclosing) scope, even after that outer scope has returned and been destroyed.
+
+Here's an example to illustrate this concept:
+
+function outer() {
+  let count = 0;
+
+  function inner() {
+    count++;
+    console.log(count);
+  }
+
+  return inner;
+}
+
+let closure = outer(); // Returns a reference to inner function
+closure(); // Output: 1
+closure(); // Output: 2
+
+In this example, the outer function defines a variable count and a function inner that increments and logs the value of count. The outer function then returns a reference to the inner function.
+
+We then assign the returned function reference to a variable called closure, which now acts as a closure for the outer function. When we invoke the closure function, it remembers the value of the count variable from its original lexical scope and is able to access and modify it, even though the outer function has returned and been destroyed.
+
+Each time we invoke the closure function, it increments and logs the value of count, demonstrating how the closure allows the inner function to maintain its connection to the outer scope even after the outer function has finished executing.
+
+Closures are a powerful feature of JavaScript that allow for more flexible and expressive code. They are often used in functional programming and asynchronous programming to manage state and preserve context.
